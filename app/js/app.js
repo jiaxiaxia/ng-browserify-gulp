@@ -1,7 +1,7 @@
 var angular=require('angular');
 require('angular-route');
 require('angular-ui-router');
-require('angular-animate')
+require('angular-animate');
 
 var screen=angular.module('screen', ['ngRoute','ngAnimate']);
 
@@ -10,7 +10,7 @@ require('./directives');
 require('./services');
 require('./filters');
 screen.config(require('./routes'));
-screen.config(require('./config'));
+//screen.config(require('./config'));
 
 
 
