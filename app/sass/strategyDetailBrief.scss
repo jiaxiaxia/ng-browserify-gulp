@@ -1,0 +1,27 @@
+@charset "utf-8";
+.strategy-list-view{
+    .textDetail {
+        margin-left: .125rem;
+        padding-top:$header-height;
+        h3 {
+            font-size: .15rem;
+            color: #333;
+        }
+        h3.condition {
+            margin: .25rem 0 .14rem 0;
+        }
+        h3.time {
+            margin: .25rem 0 .14rem 0;
+        }
+        p {
+            font-size: .14rem;
+            color: #666;
+            line-height: .225rem;
+            letter-spacing: .0056rem;
+        }
+    }
+
+    h3.introduce {
+        margin: .13rem 0 .14rem 0;
+    }
+}

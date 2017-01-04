@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+node_modules/
+app/lib/
+app/dist
+npm-debug.log
+dist
+server.js
+app/js/bundled.js
+app/css
+debug.log
+dist.tar

@@ -1,0 +1,16 @@
+
+<div class="containers strategy-list-view">
+	<div class="header">
+        	<i class="iconfont icon-left-arrow " ng-click="return()" ng-class="{'ripple':style}"></i>
+	      <h3 class="hide-title">{{shares.name}}</h3>
+    	</div>
+	<div class="textDetail">
+		<h3 class="condition">选股条件</h3>
+		<p ng-bind-html="shares.usage| trustHtml"></p>
+		<h3 class="introduce">内容描述</h3>
+		<p> {{shares.description}}</p>
+
+		<h3 class="time">推送时间</h3>
+		<p>将于每个交易日收盘后16:30至17:30自动推送</p>
+	</div>
+</div>

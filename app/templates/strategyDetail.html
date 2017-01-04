@@ -1,0 +1,97 @@
+<div class="containers strategy-detail-view" id="strategy-detail-view">
+    <div class="header">
+        <i class="iconfont icon-left-arrow " ng-click="return()"
+           ng-class="{'ripple':style}"></i>
+
+        <h3 class="hide-title" id="ht">{{shares.name}}</h3>
+    </div>
+    <div class="top-img-block">
+    </div>
+    <div class="content " on-scroll>
+        <div class="top-info">
+            <p class="types">{{shares.type}}</p>
+
+            <h3 class="names">{{shares.name}}</h3>
+
+            <div class="news">
+                <span class="percentage"
+                      ng-class="{'drop':shares.numbers*100<0,'up':shares.numbers*100>0}">{{shares.numbers*100 | number:2}}%</span><b></b><span
+                class="addUp">累计涨跌幅</span>
+            </div>
+        </div>
+        <div class="intro" ng-click="jump('/strategyDetailBrief')"
+             ng-class="{'bgchange':className}">
+            <div class="introduce">
+                <h2>策略介绍</h2>
+
+                <div class="introRight ">
+                    <span>更多详情</span><i class="iconfont icon-right-arrow "></i>
+                </div>
+            </div>
+            <p id="introduce">
+                {{shares.description}}
+            </p>
+        </div>
+        <div id="now" class="now">
+            <span class="nowLeft">当前入选股票</span>
+
+            <p class="nowRight">{{share.updated_utc | limitTo:10}} <span
+                class="hours">{{share.updated_utc | limitTo:-5}} 更新</span>
+            </p>
+
+            <div class="clear"></div>
+        </div>
+        <div class="detailTable">
+            <div class="table-title">
+                <div>名称</div>
+                <ul class="caption">
+                    <li class="first">最新价</li>
+                    <li class="second">入选价</li>
+                    <li class="thrid">累计涨跌幅</li>
+                </ul>
+            </div>
+            <!--!-->
+            <div class="empty-tips animated bounceInDown"
+                 ng-if="!loading&&share.length==0">
+                暂无推荐股票
+            </div>
+            <div class="loading position" ng-class="{'animation':loading}"
+                 ng-if="loading">
+                <loading></loading>
+            </div>
+            <div class="position">
+                <div class="dataList" ng-repeat="value in share track by $index  ">
+                    <div class="dataRow">
+                        <div class="stockMes">
+                            <h3 class="stockName">{{value.hanzi}}</h3>
+                            <span class="stockCode">{{value.symbol}}</span>
+                        </div>
+                        <ul class="caption">
+                            <li class="first liWidth">{{value.last_trade |
+                                numberToTwo}}
+                            </li>
+                            <li class="second liWidth">{{value.tclose |
+                                numberToTwo}}
+                            </li>
+                            <li class="thrid  liWidth2"
+                                ng-class="{'red':value.yield*100>0,'drop':value.yield*100<0}">
+                                {{value.yield | formatterPercent}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="explain">
+                        <div>
+                            <p>{{value.text}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading position load-more" ng-class="{'animation':hasMore.count}"
+                     ng-if="hasMore.count&&hasMore.show">
+                    <loading></loading>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

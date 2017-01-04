@@ -1,0 +1,16 @@
+
+<div class="containers strategy-list-view" >
+	<div class="header">
+        <i class="iconfont icon-left-arrow " ng-click="return()" ng-class="{'ripple':style}"></i>
+		<h3>选股策略</h3>
+	</div>
+	<div class="main">
+		<div class="tacticsList box own-list-animation" ng-repeat="share in shares |orderBy:'numbers': true" ng-click="jump(share.id)" ng-class="{'listBg':share.id==opct,'technique':share.type=='技术面','basic':share.type=='基本面','news-Trends':share.type=='消息动向'}">
+			<p class="types">{{share.type}}</p>
+			<h3 class="names">{{share.name}}</h3>
+			<div class="news">
+				<span class="percentage" ng-class="{'drop':share.numbers*100<0,'up':share.numbers*100>0}">{{share.numbers*100 | number:2}}%</span><b></b><span class="addUp">累计涨跌幅</span>
+			</div>
+		</div>
+	</div>
+</div>
